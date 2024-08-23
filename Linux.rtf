@@ -1,0 +1,241 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Hardware>>Kernel>>App Layer/Shell\
+Shell in App layer is the bridge between User and Applications\
+Any usage of the app is through shell\
+\
+Unix				Linux\
+Bourne Shell - sh 	-bash\
+Korn Shell - Ksh	-ksh\
+\'91C\'92 - sh - csh		-csh\
+\
+elf32 file is the correlation to .exe (Executable)\
+\
+Ias Infrastructure as a service\
+Saas Software as a service\
+One centralized system contains the software or infra\
+\
+Putty.exe: Virtual console of server\
+opensshclient\
+mputy \
+\
+date +%D\
+date\
+cal 11 1752\
+cal -j 254 (Julian calendar)\
+ps: List of all processes running on terminal\
+ls: List the files in the current directory\
+whoami: to display the username\
+ifconfig or ip a: Display IP Address\
+Loopback address: Local user address. Testing IP Base software refers to loopback address instead of ethernet address for local configuration: 127.0.0.1 Isolated IP Address for box without network\
+ls -i (Filename has a number in Linux. inode is this number -i)\
+ps Process ID (PID)\
+PPID: Parent Process ID ps -l (-l is long listing)\
+uname -a: Kernel version\
+hostname: Host\
+uname -in: Hostname\
+\
+cat one.txt: (Concatinating) Displays content of text files\
+mv one.txt two.txt: rename or cut paste\
+cp one.txt two.txt: duplicate or copy paste\
+mkdir\
+rmdir\
+\
+Compression of file:\
+seq 1 5000 > out.txt (Creates file by the name out.txt)\
+ls -l out.txt (Shows size: -rw-r--r--  1 i331597  1694527156  23893 Sep 14 11:28 out.txt)\
+gzip out.txt (Compress text file and replace with compressed file)(Add -o to create second file)\
+ls -l out.txt.gz\
+-rw-r--r--  1 i331597  1694527156  11123 Sep 14 11:28 out.txt.gz\
+gzip -l out.txt.gz (Check compression ratio)\
+  compressed uncompressed  ratio uncompressed_name\
+       11123        23893  53.4% out.txt\
+gunzip out.txt or gzip -u\
+gzcat out.txt (Display compressed file)\
+tar -cvf bkp.tar progs\
+tar -tvf bkp.tar (Display)\
+tar -xvf bkp.tar (Extract-x)\
+ls -l bkp.tar\
+tar -zcvf bkp.tgz\
+tar -ztvf bkp.tgz\
+\
+File redirection:\
+stdin-0\
+stdout-1\
+stderr-2\
+\
+INLM50931619A:Linux Programming i331597$ date +%D > out1.txt (New file)\
+INLM50931619A:Linux Programming i331597$ date +%D >> out1.txt 2>err.txt (Append an existing file) (2 is for error and creating logs in new files)\
+2>/dev/null makes the file zero\
+cat 1.txt 2.txt>/dev/null 2>&1 (No output. Suppress the error in output then)\
+cat >one.txt <new.txt 2>err.txt\
+>one is output\
+<new.txt is input\
+2>err.txt is error\
+First it picks up input. Copies this into one.txt and then throws error if any\
+\
+Shared memory is IPC\
+Copy from Word>>Shared Memory>>Excel copy\
+\
+cmd Piping for data dependency\
+cmd1 | cmd2 | cmd3\
+Eg. ls | wc -l (Gives word count in present directory)\
+Eg. ps | head -1 | wc -w (Count number of columns in the file)\
+Eg. head -5 nums.text | tail -1 (Displays only line 5. So Output of first command turns into input for the second)\
+\
+Filters:\
+wc - word count -l lines -w words -c characters\
+sort - order\
+grep - search for a pattern\
+cut - extract\
+comm - compare\
+cop - compare\
+diff - compare\
+uniq - Unique and duplicates\
+tee - tee pipe\
+tr - translate\
+tail - bottom\
+head - top\
+\
+tr \'93 \'93 \'93:\'94< emps.txt (Replaces spaces in file with :)\
+\
+sort emps.txt - first column - delimiter is space\
+sort -k2 emps.txt - second column\
+sort -r emps.txt - desc order\
+sort -t emps.txt - delimiter for sorting\
+sort -nk5 emps.txt | tail -1 | cut -d \'93 \'93 -f2 (Remove name only from a data set, cut is used to cut specific fields) \
+\
+INLM50931619A:Linux Programming i331597$ date\
+Thu Sep 14 14:22:10 IST 2017\
+INLM50931619A:Linux Programming i331597$ date | cut -d " " -f4\
+14:22:26\
+INLM50931619A:Linux Programming i331597$ date | cut -d " " -f4 | cut -d ":" -f1\
+14\
+\
+grep command:\
+Regular expressions re\
+BRE (Basic)\
+. - one char\
+[]- Range\
+^- starts with\
+$-ends with\
+*- zero/more\
+\
+ERE (Extended)\
+?- zero/ome\
++- one/more\
+\{m,n\}-repetitive\
+()- grouping\
+| - or \
+\
+grep supports BRE\
+egrep - BRE and ERE\
+fgrep - no support for res\
+\
+1. contains - \'93arun\'94 \
+2. starts with - \'93^arun\'94\
+3. ends with - \'93arun$\'94\
+4. exactly - \'93^arun$\'94\
+\
+\
+Shell scripting:\
+\
+No space before and after \'93=\'93\
+\
+bounce shall script\
+korn shell\
+C shell\
+\
+first.sh\
+#!/bin/bash\
+\
+echo \'93This is my first script\'94\
+echo \'93My PID = $$\'94\
+echo \'93My program name = $0\'94\
+echo \'93Enter your name : \'93\
+read name\
+echo \'93Welcome to UNIX $name\'94 \
+\
+How to run the script:\
+\
+Method 1: sh first.sh: Creates new bash instance and that is visible when you check the PID. Executed in sub shell\
+Method 2: chmod +x first.sh (It is compulsory to specify the she-bang) (Admin permission granted)\
+		echo $$\
+		./first.sh (The first word in any line is always treated as command in bash. So since this case has no bash, it will pick a new instance from she-bang and execute)\
+Method 3: echo $$\
+		source first.sh (Executed in the same shell)\
+		Or \
+		. first.sh\
+Method 4: To make the script universally executable\
+		Place the script in /home/i331597/bin\
+		Execute the script now. cd is not required\
+\
+Shell Variables:\
+PATH\
+HOME\
+TERM\
+HOST\
+USER/LOGNAME\
+SHELL\
+\
+Special variables:\
+$$ - PID of current process\
+$! - PID of last background process\
+$0 - Filename\
+$? - exit status of the command (return 0 then success, else other than 0, e.g.. 127 Check on man bash to check the error codes in man bash)\
+\
+User defined variables:\
+a=10 #numeric variable\
+a=\'91hello world\'92 #non-numeric variable\
+\
+Startup scripts:\
+bash - .bash_profile / .bashrc\
+ksh	- .profile		/.kshrc\
+csh	- .login 		/.cshrc\
+\
+Gets executed when the user logs in - .profile/ .login\
+Gets executed when a new shell is created - rc\
+vi ~./bashrc\
+vi ~./bash_profile\
+\
+To enter another shell, e.g.. Korn Shell - type .ksh\
+\
+Variables created in child shell are not visible in parent but the ones created in parent are visible in others\
+\
+script1.sh\
+\
+echo \'93Enter filename to get size\'94\
+read fname\
+ls -l $fname | tr -s \'93 \'93| cut -d \'93 \'93 -f5 2> /dev/null | \
+if test $?  -n 0\
+then\
+	echo \'93File not Found\'94\
+fi\
+\
+script2.sh\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+echo \'93Enter filename to get size\'94\
+read fname\
+res=`ls -l $fname | tr -s \'93 \'93| cut -d \'93 \'93 -f5 2> /dev/null` (res is any random variable)\
+if test $?  -n 0\
+then\
+	echo \'93File not Found\'94\
+fi\
+echo \'93Result = $res\'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+bc binary calculator\
+bc -l\
+\
+Command substitution:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 res=`ls -l $fname | tr -s \'93 \'93| cut -d \'93 \'93 -f5 2> /dev/null` (res is any random variable)\
+res=$(ls -l $fname | tr -s \'93 \'93| cut -d \'93 \'93 -f5 2> /dev/null)\
+\
+}
